@@ -1,0 +1,35 @@
+doctype html
+html
+    head
+        link(rel='stylesheet', href='stylesheets/checklist.css')
+    head
+    body
+        center
+            h1 Definition of Done 
+            p Lineup for code review process
+            div(class='dropdown')
+                a(href='http://localhost:2000/', class='select') select
+                div(class='rest')
+                    a(href='http://localhost:2000/') above
+                    a(href='http://localhost:2000/checklist') checklist
+                    a(href='http://localhost:2000/done') done
+            div(class='content')
+                h4 checklist
+                div(class='rules')
+                    div(class='nicealign')
+                        table
+                            tr
+                                form(action='http://localhost:2000/toadd',method='get')
+                                    td 
+                                        input(type='text', name='todo',placeholder='enter here')
+                                    td
+                                        input(type='submit' name='button' value='add')
+                                    td
+                                        input(type='submit' name='button' value='alldone')
+                                        
+                            - for(var i of doc){
+                            tr
+                                td #{i.task}
+                                td itsdone
+                                td delete
+                            -}
